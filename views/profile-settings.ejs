@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta
+      name="description"
+      content="Purpose is a unique and beautiful collection of UI elements that are all flexible and modular. A complete and customizable solution to building the website of your dreams."
+    />
+    <meta name="author" content="Webpixels" />
+    <title>
+      Purpose Website UI Kit - Purpose is a unique and beautiful collection of
+      UI elements that are all flexible and modular. A complete and customizable
+      solution to building the website of your dreams.
+    </title>
+    <!-- Favicon -->
+    <link rel="icon" href="../img/brand/favicon.png" type="image/png" />
+    <!-- Font Awesome 5 -->
+    <link
+      rel="stylesheet"
+      href="../libs/@fortawesome/fontawesome-free/css/all.min.css"
+    />
+    <!-- Page CSS -->
+    <link
+      type="text/css"
+      href="../libs/@fancyapps/fancybox/dist/jquery.fancybox.min.css"
+      rel="stylesheet"
+    />
+    <!-- Purpose CSS -->
+    <link rel="stylesheet" href="../css/purpose.css" id="stylesheet" />
+  </head>
+
+  <body>
+    <header class="header header-transparent" id="header-main">
+      <!-- Main navbar -->
+      <%- include('partials/navbar'); %>
+    </header>
+    
+    <div class="main-content">
+      <!-- Header (account) -->
+      <%- include('partials/header'); %>
+      <section class="pt-5 pt-lg-0">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-4">
+              <!-- Profile Card -->
+              <%- include('partials/profile'); %>
+            </div>
+            <div class="col-lg-8 mt-lg-5">
+              <!-- Change avatar -->
+              <div class="card bg-gradient-warning hover-shadow-lg">
+                <div class="card-body py-3">
+                  <div class="row row-grid align-items-center">
+                    <div class="col-lg-8">
+                      <div class="media align-items-center">
+                        <a
+                          href="account-profile-public.html#"
+                          class="avatar avatar-lg rounded-circle mr-3"
+                        >
+                          <img
+                            alt="Image placeholder"
+                            src="../img/theme/light/team-1-800x800.jpg"
+                          />
+                        </a>
+                        <div class="media-body">
+                          <h5 class="text-white mb-0">Heather Wright</h5>
+                          <div>
+                            <form>
+                              <input
+                                type="file"
+                                name="file-1[]"
+                                id="file-1"
+                                class="custom-input-file custom-input-file-link"
+                                data-multiple-caption="{count} files selected"
+                                multiple
+                              />
+                              <label for="file-1">
+                                <span class="text-white">Change avatar</span>
+                              </label>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="col-auto flex-fill mt-4 mt-sm-0 text-sm-right d-none d-lg-block"
+                    >
+                      <a
+                        href="account-profile-public.html#"
+                        class="btn btn-sm btn-white rounded-pill btn-icon shadow"
+                      >
+                        <span class="btn-inner--icon"
+                          ><i class="fas fa-fire"></i
+                        ></span>
+                        <span class="btn-inner--text">Upgrade to Pro</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- General information form -->
+              <div class="actions-toolbar py-2 mb-4">
+                <h5 class="mb-1">General information</h5>
+                <p class="text-sm text-muted mb-0">
+                  You can help us, by filling your data, create you a much
+                  better experience using our website.
+                </p>
+              </div>
+              <form id="profile-form">
+                <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label class="form-control-label">User name</label>
+                        <input
+                          class="form-control"
+                          type="text"
+                          name="username"
+                          id="username"
+                          value="<%= user.username %>"
+                          
+                        />
+                        
+                      </div>
+                    </div>
+                  </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="form-control-label">First name</label>
+                      <input
+                        class="form-control"
+                        type="text"
+                        name="firstName"
+                        id="firstName"
+                        value="<%= user.firstName %>"
+                        placeholder="Enter your first name"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="form-control-label">Last name</label>
+                      <input
+                        class="form-control"
+                        type="text"
+                        name="lastName"
+                        id="lastName"
+                        value="<%= user.lastName %>"
+                        placeholder="Also your last name"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="row align-items-center">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="form-control-label">Phone</label>
+                      <input
+                        class="form-control"
+                        type="text"
+                        name="phone"
+                        id="phone"
+                        placeholder="+40-777 245 549"
+                        value="<%= user.phone %>"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="form-control-label">Gender</label>
+                      <select class="form-control" data-toggle="select" id="gender" name="gender">
+                        <option
+                          value="<%= user.gender %>"
+                          selected
+                          disabled
+                          hidden
+                          
+                        >
+                          <%= user.gender %>
+                        </option>
+                        <option value="Female">Female</option>
+                        <option value="Male">Male</option>
+                        <option value="Rather not say">Rather not say</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="form-control-label">Email</label>
+                      <input
+                        class="form-control"
+                        type="email"
+                        name="email"
+                        id="email"
+                        value="<%= user.email %>"
+                        readonly
+                      />
+                      <small class="form-text text-muted mt-2"
+                        >This is the main email address that we'll send
+                        notifications to.
+                        <a href="account-notifications.html"
+                          >Manage you notifications</a
+                        >
+                        in order to receive only the thing that matter to you
+                        most.</small
+                      >
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Description -->
+                <div class="pt-5 mt-5 delimiter-top">
+                  <div class="actions-toolbar py-2 mb-4">
+                    <h5 class="mb-1">About me</h5>
+                    <p class="text-sm text-muted mb-0">
+                      Use this field to let others know you better.
+                    </p>
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      <div class="form-group">
+                        <div class="form-group">
+                          <label class="form-control-label">Bio</label>
+                          <textarea
+                            class="form-control"
+                            name="about"
+                            id="about"
+                            placeholder="Tell us a few words about yourself"
+                            value
+                            rows="5"
+                          >
+<%- user.about %></textarea
+                          >
+                          <small class="form-text text-muted mt-2"
+                            >You can @mention other users and organizations to
+                            link to them.</small
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Save changes buttons -->
+                <div class="pt-5 mt-5 delimiter-top text-center">
+                  <input type="submit" class="btn btn-sm btn-primary" value="Save changes">
+                    
+                  </input>
+                 
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- Footer-->
+    <%- include('partials/footer'); %>
+    <!-- Core JS - includes jquery, bootstrap, popper, in-view and sticky-kit -->
+    <script src="../js/purpose.core.js"></script>
+    <!-- Page JS -->
+    <script src="../libs/@fancyapps/fancybox/dist/jquery.fancybox.min.js"></script>
+    <script src="../libs/autosize/dist/autosize.min.js"></script>
+    <!-- Purpose JS -->
+    <script src="../js/purpose.js"></script>
+    <!-- Demo JS - remove it when starting your project -->
+    <script src="../js/demo.js"></script>
+  </body>
+</html>
+
+<script>
+  const profileForm = document.querySelector("#profile-form");
+
+
+  profileForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    try {
+      const firstName = profileForm.firstName.value;
+      const lastName = profileForm.lastName.value;
+      const gender = profileForm.gender.value;
+      const phone = profileForm.phone.value;
+      const about = profileForm.about.value;
+      const username = profileForm.username.value;
+
+      const res = await fetch("/update/profile", {
+        method: "PATCH",
+        body: JSON.stringify({
+          firstName,
+          lastName,
+          gender,
+          phone,
+          about,
+          username
+        }),
+        headers: { "Content-Type": "application/json" },
+      });
+
+      if (res.status == 200) {
+        window.location.reload(true);
+      } else {
+        alert("Oops something went wrong!");
+      }
+    } catch (error) {
+      alert("Oops something went wrong!");
+    }
+  });
+</script>

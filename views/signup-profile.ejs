@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta
+      name="description"
+      content="Purpose is a unique and beautiful collection of UI elements that are all flexible and modular. A complete and customizable solution to building the website of your dreams."
+    />
+    <meta name="author" content="Webpixels" />
+    <title>
+      Purpose Website UI Kit - Purpose is a unique and beautiful collection of
+      UI elements that are all flexible and modular. A complete and customizable
+      solution to building the website of your dreams.
+    </title>
+    <!-- Favicon -->
+    <link rel="icon" href="../img/brand/favicon.png" type="image/png" />
+    <!-- Font Awesome 5 -->
+    <link
+      rel="stylesheet"
+      href="../libs/@fortawesome/fontawesome-free/css/all.min.css"
+    />
+    <!-- Purpose CSS -->
+    <link rel="stylesheet" href="../css/purpose.css" id="stylesheet" />
+  </head>
+
+  <body>
+    <div class="main-content">
+      <div class="container min-vh-100 d-flex align-items-center">
+        <div class="col py-5">
+          <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6">
+              <div>
+                <div class="mb-5 text-center">
+                  <h6 class="h3">Create account</h6>
+                  <p class="text-muted mb-0">
+                    Made with love by developers for developers.
+                  </p>
+                </div>
+                <span class="clearfix"></span>
+                <form role="form">
+                  <div class="form-group">
+                    <label class="form-control-label">User Name</label>
+                    <div class="input-group input-group-merge">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"
+                          ><i class="fas fa-user"></i
+                        ></span>
+                      </div>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="username"
+                        name="username"
+                        placeholder="username"
+                      />
+                    </div>
+                  </div>
+                  <div class="form-group mb-4">
+                    <label class="form-control-label">College</label>
+                    <div class="input-group input-group-merge">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"
+                          ><i class="fas fa-key"></i
+                        ></span>
+                      </div>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="college"
+                        name="college"
+                        placeholder="college"
+                      />
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-control-label">About</label>
+                    <div class="input-group input-group-merge">
+                      <textarea class="form-control" name="about" id="about" placeholder="Something about yourself." rows="3"></textarea>
+                    </div>
+                  </div>
+
+                  <div class="mt-4">
+                    <input type="submit" value="Create My Account" class="btn btn-block btn-primary">
+                      
+                    </inp>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const form = document.querySelector("form");
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        try {
+          const username = form.username.value;
+          const college = form.college.value;
+          const about = form.about.value;
+
+          console.log(username, college, about);
+
+          const res = await fetch("/signup/profile", {
+            method: "PATCH",
+            body: JSON.stringify({
+              username,
+              college,
+              about
+            }),
+            headers: { "Content-Type": "application/json" },
+          })
+
+          const data = await res.json();
+
+          if(res.status==200)
+          {
+            window.location.href = "/dashboard";
+          }
+          else
+          {
+            alert("Oops somehting went wrong!")
+          }
+
+          
+        } catch (error) {
+          alert("Oops something went wrong!");
+        }
+        
+      });
+    </script>
+
+    <!-- Core JS - includes jquery, bootstrap, popper, in-view and sticky-kit -->
+    <script src="../js/purpose.core.js"></script>
+    <!-- Purpose JS -->
+    <script src="../js/purpose.js"></script>
+    <!-- Demo JS - remove it when starting your project -->
+    <script src="../js/demo.js"></script>
+  </body>
+</html>
