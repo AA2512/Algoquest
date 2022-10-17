@@ -6,6 +6,7 @@ const passport = require("passport");
 const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
 const mongoose = require("mongoose");
+const fileUpload = require("express-fileupload");
 //Database
 const connectDB = require("./config/db");
 
@@ -16,6 +17,11 @@ connectDB();
 const app = express();
 
 app.use(express.json());
+app.use(
+  fileUpload({
+    useTempFiles: true,
+  })
+);
 
 if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
@@ -46,6 +52,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/", require("./routes/index"));
 app.use("/auth", require("./routes/auth"));
 app.use("/post", require("./routes/post"));
+app.use("/", require("./routes/profile"));
 
 app.get("/*", (req, res) => {
   res.render("error-404");

@@ -57,6 +57,10 @@ const userSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+  skills: {
+    type: Array,
+    default: [],
+  },
 });
 
 module.exports = mongoose.model("User", userSchema);

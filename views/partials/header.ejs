@@ -1,5 +1,15 @@
 <section
-  class="header-account-page bg-primary d-flex align-items-end"
+  class="header-account-page d-flex align-items-end"
+  style="
+    background-image: linear-gradient(
+        to bottom,
+        rgba(245, 246, 252, 0.52),
+        rgba(82, 72, 79, 0.73)
+      ),
+      url('../cstm-assets/hero.png');
+    background-position: center;
+    background-size: cover;
+  "
   data-offset-top="#header-main"
 >
   <!-- Header container -->
@@ -7,56 +17,29 @@
     <div class="row justify-content-end">
       <div class="col-lg-8">
         <!-- Salute + Small stats -->
-        <div class="row align-items-center mb-4">
-          <div class="col-lg-8 col-xl-5 mb-4 mb-md-0">
-            <span class="h2 mb-0 text-white d-block">Morning, Heather</span>
+        <div
+          class="row align-items-center mb-4 bg-primary"
+          style="
+            width: 40% !important;
+            display: block;
+            border-radius: 20px !important;
+            padding: 20px;
+          "
+        >
+          <div
+            class="col-lg-8 col-xl-5 mb-4 mb-md-0"
+            style="max-width: 100% !important"
+          >
+            <span class="h2 mb-0 text-white d-block"
+              >Howdy, <%= user.username %></span
+            >
             <span class="text-white">Have a nice day!</span>
-          </div>
-          <div class="col-auto flex-fill d-none d-xl-block">
-            <ul class="list-inline row justify-content-lg-end mb-0">
-              <li class="list-inline-item col-sm-4 col-md-auto px-3 my-2 mx-0">
-                <span class="badge badge-dot text-white">
-                  <i class="bg-success"></i>Sales
-                </span>
-                <a
-                  class="d-sm-block h5 text-white font-weight-bold pl-2"
-                  href="account-profile-public.html#"
-                >
-                  20.5%
-                  <small class="fas fa-angle-up text-success"></small>
-                </a>
-              </li>
-              <li class="list-inline-item col-sm-4 col-md-auto px-3 my-2 mx-0">
-                <span class="badge badge-dot text-white">
-                  <i class="bg-warning"></i>Tasks
-                </span>
-                <a
-                  class="d-sm-block h5 text-white font-weight-bold pl-2"
-                  href="account-profile-public.html#"
-                >
-                  5.7%
-                  <small class="fas fa-angle-up text-warning"></small>
-                </a>
-              </li>
-              <li class="list-inline-item col-sm-4 col-md-auto px-3 my-2 mx-0">
-                <span class="badge badge-dot text-white">
-                  <i class="bg-danger"></i>Sales
-                </span>
-                <a
-                  class="d-sm-block h5 text-white font-weight-bold pl-2"
-                  href="account-profile-public.html#"
-                >
-                  -3.24%
-                  <small class="fas fa-angle-down text-danger"></small>
-                </a>
-              </li>
-            </ul>
           </div>
         </div>
         <!-- Account navigation -->
         <div class="d-flex">
           <a
-            href="account-profile-public.html"
+            href="/profile"
             class="btn btn-icon btn-group-nav shadow btn-neutral"
           >
             <span class="btn-inner--icon"><i class="fas fa-user"></i></span>

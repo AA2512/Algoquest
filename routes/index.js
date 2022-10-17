@@ -3,6 +3,7 @@ const express = require("express");
 const router = express.Router();
 const { ensureAuth, ensureGuest } = require("../middleware/auth");
 const { getAllPosts } = require("../middleware/dashboard");
+const { checkSignUp } = require("../middleware/user");
 
 //@desc Login
 //@route GET /
@@ -11,12 +12,14 @@ router.get("/", ensureGuest, (req, res) => {
   res.render("login");
 });
 
-router.get("/dashboard", ensureAuth, getAllPosts, (req, res) => {
+router.get("/dashboard", ensureAuth, checkSignUp, getAllPosts, (req, res) => {
   res.locals.user = req.user;
   res.render("dashboard");
 });
 
 router.get("/signup/profile", ensureAuth, (req, res) => {
+  if (req.user.username && req.user.username.length > 0)
+    return res.redirect("/dashboard");
   res.render("signup-profile");
 });
 
@@ -32,34 +35,6 @@ router.patch("/signup/profile", ensureAuth, async (req, res) => {
     user.about = about;
 
     await user.save();
-    res.status(200).json({
-      status: "OK",
-    });
-  } catch (error) {
-    res.status(400).json({
-      error: "Something went wrong!",
-    });
-  }
-});
-
-router.get("/profile", ensureAuth, (req, res) => {
-  res.locals.user = req.user;
-  res.render("profile-settings");
-});
-
-router.patch("/update/profile", ensureAuth, async (req, res) => {
-  const user = req.user;
-
-  console.log(user, req.body);
-  try {
-    user.firstName = req.body.firstName;
-    user.lastName = req.body.lastName;
-    user.username = req.body.username;
-    user.phone = req.body.phone;
-    user.about = req.body.about;
-    user.gender = req.body.gender;
-    await user.save();
-
     res.status(200).json({
       status: "OK",
     });
