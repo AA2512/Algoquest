@@ -1,18 +1,11 @@
 <nav
-  class="navbar navbar-main navbar-expand-lg navbar-dark bg-dark"
+  class="navbar navbar-main navbar-expand-lg navbar-dark bg-primary"
   id="navbar-main"
-  style="padding-bottom: 2.5rem"
+  style="padding-top: 2rem; padding-bottom: 2rem"
 >
   <div class="container px-lg-0">
     <!-- Logo -->
-    <!-- <a class="navbar-brand mr-lg-5" href="../../index.html">
-      <img
-        alt="Image placeholder"
-        src="/img/brand/white.png"
-        id="navbar-logo"
-        style="height: 50px"
-      />
-    </a> -->
+
     <!-- Navbar collapse trigger -->
     <button
       class="navbar-toggler pr-0"
@@ -25,131 +18,24 @@
     >
       <span class="navbar-toggler-icon"></span>
     </button>
+
     <!-- Navbar nav -->
     <div class="collapse navbar-collapse" id="navbar-main-collapse">
       <ul class="navbar-nav align-items-lg-center ml-lg-auto">
-        <li class="nav-item dropdown dropdown-animate" data-toggle="hover">
-          <a
-            class="nav-link dropdown-toggle"
-            href="account-profile-public.html#"
-            role="button"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-            >Docs</a
-          >
-          <div
-            class="dropdown-menu dropdown-menu-right dropdown-menu-lg dropdown-menu-arrow p-0"
-          >
-            <ul class="list-group list-group-flush">
-              <li>
-                <a
-                  href="../../docs/index.html"
-                  class="list-group-item list-group-item-action"
-                  role="button"
-                >
-                  <div class="media d-flex align-items-center">
-                    <!-- SVG icon -->
-                    <figure style="width: 50px">
-                      <img
-                        alt="Image placeholder"
-                        src="../img/icons/essential/detailed/DOC_File.svg"
-                        class="svg-inject img-fluid"
-                        style="height: 50px"
-                      />
-                    </figure>
-                    <!-- Media body -->
-                    <div class="media-body ml-3">
-                      <h6 class="mb-1">Documentation</h6>
-                      <p class="mb-0">
-                        Awesome section examples for any scenario.
-                      </p>
-                    </div>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a
-                  href="../../docs/components/index.html"
-                  class="list-group-item list-group-item-action"
-                  role="button"
-                >
-                  <div class="media d-flex align-items-center">
-                    <!-- SVG icon -->
-                    <figure style="width: 50px">
-                      <img
-                        alt="Image placeholder"
-                        src="../img/icons/essential/detailed/Mobile_UI.svg"
-                        class="svg-inject img-fluid"
-                        style="height: 50px"
-                      />
-                    </figure>
-                    <!-- Media body -->
-                    <div class="media-body ml-3">
-                      <h6 class="mb-1">Components</h6>
-                      <p class="mb-0">
-                        Awesome section examples for any scenario.
-                      </p>
-                    </div>
-                  </div>
-                </a>
-              </li>
-            </ul>
-            <div class="dropdown-menu-links rounded-bottom delimiter-top p-4">
-              <div class="row">
-                <div class="col-sm-6">
-                  <a
-                    href="../../docs/getting-started/installation.html"
-                    class="dropdown-item"
-                    >Installation</a
-                  >
-                  <a
-                    href="../../docs/getting-started/file-structure.html"
-                    class="dropdown-item"
-                    >File structure</a
-                  >
-                  <a
-                    href="../../docs/getting-started/build-tools.html"
-                    class="dropdown-item"
-                    >Build tools</a
-                  >
-                  <a
-                    href="../../docs/getting-started/customization.html"
-                    class="dropdown-item"
-                    >Customization</a
-                  >
-                </div>
-                <div class="col-sm-6">
-                  <a
-                    href="../../docs/getting-started/plugins.html"
-                    class="dropdown-item"
-                    >Using plugins</a
-                  >
-                  <a
-                    href="../../docs/components/index.html"
-                    class="dropdown-item"
-                    >Components</a
-                  >
-                  <a
-                    href="../../docs/plugins/animate.html"
-                    class="dropdown-item"
-                    >Plugins</a
-                  >
-                  <a href="../../docs/support.html" class="dropdown-item"
-                    >Support</a
-                  >
-                </div>
-              </div>
-            </div>
-          </div>
-        </li>
         <li class="nav-item d-lg-none d-xl-block">
-          <a class="nav-link" href="../../docs/changelog.html" target="_blank"
-            >What's new</a
-          >
+          <a class="nav-link" href="/dashboard" target="_blank">Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a
+            href="index.html#"
+            class="nav-link"
+            data-action="omnisearch-open"
+            data-target="#omnisearch"
+            ><i class="fas fa-search"></i
+          ></a>
         </li>
         <li class="nav-item mr-0">
-          <a
+          <!-- <a
             href="https://themes.getbootstrap.com/product/purpose-website-ui-kit/"
             target="_blank"
             class="nav-link d-lg-none"
@@ -167,9 +53,101 @@
               ><i class="fas fa-shopping-cart"></i
             ></span>
             <span class="btn-inner--text">Purchase now</span>
-          </a>
+          </a> -->
+          <div class="btn-group">
+            <button
+              type="button"
+              class="btn-sm btn-primary dropdown-toggle"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              <%= user.username %>
+            </button>
+            <div class="dropdown-menu" style="width: 70%; min-width: 13rem">
+              <a class="dropdown-item" href="/profile">
+                <i class="fas fa-user"></i> Profile</a
+              >
+              <a class="dropdown-item" href="/auth/logout">
+                <i class="fas fa-arrow-alt-circle-right"></i> Logout</a
+              >
+            </div>
+          </div>
         </li>
       </ul>
     </div>
+    <!-- Omnisearch -->
+    <div id="omnisearch" class="omnisearch">
+      <div class="container">
+        <!-- Search form -->
+        <form class="omnisearch-form">
+          <div class="form-group">
+            <div class="input-group input-group-merge input-group-flush">
+              <div class="input-group-prepend">
+                <span class="input-group-text"
+                  ><i class="fas fa-search"></i
+                ></span>
+              </div>
+              <input
+                type="text"
+                id="search"
+                class="form-control"
+                placeholder="Type and hit enter ..."
+              />
+            </div>
+          </div>
+        </form>
+        <!-- <div class="omnisearch-suggestions">
+          <h6 class="heading">Search Suggestions</h6>
+          <div class="row">
+            <div class="col-sm-6">
+              <ul class="list-unstyled mb-0">
+                <li>
+                  <a class="list-link" href="index.html#">
+                    <i class="fas fa-search"></i>
+                    <span>macbook pro</span> in Laptops
+                  </a>
+                </li>
+                <li>
+                  <a class="list-link" href="index.html#">
+                    <i class="fas fa-search"></i>
+                    <span>iphone 8</span> in Smartphones
+                  </a>
+                </li>
+                <li>
+                  <a class="list-link" href="index.html#">
+                    <i class="fas fa-search"></i>
+                    <span>macbook pro</span> in Laptops
+                  </a>
+                </li>
+                <li>
+                  <a class="list-link" href="index.html#">
+                    <i class="fas fa-search"></i>
+                    <span>beats pro solo 3</span> in Headphones
+                  </a>
+                </li>
+                <li>
+                  <a class="list-link" href="index.html#">
+                    <i class="fas fa-search"></i>
+                    <span>smasung galaxy 10</span> in Phones
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div> -->
+      </div>
+    </div>
   </div>
 </nav>
+
+<script>
+  const searchForm = document.querySelector(".omnisearch-form");
+  searchForm.addEventListener("keypress", (e) => {
+    if (e.keyCode === 13) {
+      e.preventDefault();
+      const searchQuery = searchForm.search.value;
+      console.log(searchQuery);
+    }
+  });
+</script>

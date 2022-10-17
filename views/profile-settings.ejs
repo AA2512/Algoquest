@@ -301,7 +301,6 @@
                       </div>`;
     const formData = new FormData();
     formData.append("avatar", avatar.files[0]);
-    console.log(formData);
     try {
       const res = await fetch("/update/avatar", {
         method: "POST",
@@ -329,7 +328,6 @@
       const about = profileForm.about.value;
       const username = profileForm.username.value;
       const skills = profileForm.skills.value.split(",");
-      console.log(skills);
 
       const res = await fetch("/update/profile", {
         method: "PATCH",

@@ -5,4 +5,4 @@ In order to start using Rich Text Editor, configure or customize them, please vi
 
 ## License
 
-For information regarding the license please read [Licensing Info](http://richtexteditor.com/license.aspx).
+For informations regarding the license please read [Licensing Info](http://richtexteditor.com/license.aspx).

@@ -3408,9 +3408,10 @@ input[type="submit"].btn-block {
   font-variant: normal;
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
-  font-family: Font Awesome\5 Pro, Font Awesome\5 Free;
+  font-family: "Font Awesome\ 5 Free";
+  content: "\f0d7";
   font-weight: 700;
-  content: "\F107";
+
 }
 .dropdown-toggle:empty:after {
   margin-left: 0;

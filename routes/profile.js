@@ -53,7 +53,6 @@ router.patch("/update/profile", ensureAuth, checkSignUp, async (req, res) => {
 router.post("/update/avatar", ensureAuth, checkSignUp, async (req, res) => {
   const file = req.files.avatar;
   const user = req.user;
-  console.log(req.files);
   if (file) {
     const result = await cloudinary.uploader.upload(file.tempFilePath);
     user.image = result.secure_url;

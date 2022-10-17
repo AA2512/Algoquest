@@ -6,7 +6,7 @@
         rgba(245, 246, 252, 0.52),
         rgba(82, 72, 79, 0.73)
       ),
-      url('../cstm-assets/hero.png');
+      url('/cstm-assets/hero.png');
     background-position: center;
     background-size: cover;
   "
@@ -22,6 +22,7 @@
           style="
             width: 40% !important;
             display: block;
+            border: 5px solid black;
             border-radius: 20px !important;
             padding: 20px;
           "
@@ -57,38 +58,20 @@
                 id="btn-group-settings"
                 type="button"
                 class="btn btn-neutral btn-icon"
-                data-toggle="dropdown"
                 data-offset="0,8"
                 aria-haspopup="true"
                 aria-expanded="false"
+                onclick="(()=>{
+                  window.location.href=`/post/create/new`
+                })()"
               >
-                <span class="btn-inner--icon"
-                  ><i class="fas fa-sliders-h"></i
-                ></span>
+                <span class="btn-inner--icon"><i class="fas fa-pen"></i></span>
                 <span class="btn-inner--text d-none d-sm-inline-block"
-                  >Account</span
+                  >Post</span
                 >
               </button>
-              <div
-                class="dropdown-menu dropdown-menu-right dropdown-menu-arrow"
-                aria-labelledby="btn-group-settings"
-              >
-                <span class="dropdown-header">Profile</span>
-                <a class="dropdown-item" href="account-profile-public.html"
-                  >Public profile</a
-                >
-                <span class="dropdown-header">Account</span>
-                <a class="dropdown-item" href="account-profile.html">Profile</a>
-                <a class="dropdown-item" href="account-settings.html"
-                  >Settings</a
-                >
-                <a class="dropdown-item" href="account-billing.html">Billing</a>
-                <a class="dropdown-item" href="account-notifications.html"
-                  >Notifications</a
-                >
-              </div>
             </div>
-            <div class="btn-group" role="group">
+            <!-- <div class="btn-group" role="group">
               <button
                 id="btn-group-boards"
                 type="button"
@@ -146,7 +129,7 @@
                 <span class="dropdown-header">Flex</span>
                 <a class="dropdown-item" href="listing-users.html">Users</a>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>

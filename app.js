@@ -7,6 +7,7 @@ const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
 const mongoose = require("mongoose");
 const fileUpload = require("express-fileupload");
+const bodyParser = require("body-parser");
 //Database
 const connectDB = require("./config/db");
 
@@ -16,7 +17,6 @@ require("./config/passport")(passport);
 connectDB();
 const app = express();
 
-app.use(express.json());
 app.use(
   fileUpload({
     useTempFiles: true,
