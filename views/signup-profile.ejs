@@ -104,17 +104,15 @@
           const username = form.username.value;
           const college = form.college.value;
           const about = form.about.value;
-
+          const formData = new FormData();
+          formData.append('username', username);
+          formData.append('college', college);
+          formData.append('about',about);
           console.log(username, college, about);
 
           const res = await fetch("/signup/profile", {
             method: "PATCH",
-            body: JSON.stringify({
-              username,
-              college,
-              about
-            }),
-            headers: { "Content-Type": "application/json" },
+            body: formData,
           })
 
           const data = await res.json();

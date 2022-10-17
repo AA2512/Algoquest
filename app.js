@@ -16,7 +16,7 @@ require("./config/passport")(passport);
 //Connecting to Database
 connectDB();
 const app = express();
-
+app.use(express.json());
 app.use(
   fileUpload({
     useTempFiles: true,
