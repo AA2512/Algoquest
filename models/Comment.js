@@ -2,24 +2,25 @@ const mongoose = require("mongoose");
 const commentSchema = mongoose.Schema(
   {
     postId: {
-      type: Number,
-      default: 1,
+      type: String,
+      required: true,
     },
     depth: {
       type: Number,
       default: 1,
     },
     parentId: {
-      type: mongoose.Schema.Types.ObjectId,
+      type: String,
       default: null,
     },
-    postedDate: {
-      type: Date,
-      default: Date.now,
-    },
     author: {
-      id: mongoose.Schema.Types.ObjectId,
-      name: String,
+      // Username
+      type: String,
+      required: true,
+    },
+    authorImage: {
+      type: String,
+      required: true,
     },
     commentText: {
       type: String,

@@ -17,6 +17,7 @@ require("./config/passport")(passport);
 connectDB();
 const app = express();
 app.use(express.json());
+
 app.use(
   fileUpload({
     useTempFiles: true,
@@ -52,6 +53,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/", require("./routes/index"));
 app.use("/auth", require("./routes/auth"));
 app.use("/post", require("./routes/post"));
+app.use("/comment", require("./routes/comment"));
 app.use("/", require("./routes/profile"));
 
 app.get("/*", (req, res) => {

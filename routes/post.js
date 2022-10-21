@@ -3,6 +3,7 @@ const Post = require("../models/Post");
 const cloudinary = require("cloudinary");
 const User = require("../models/User");
 const moment = require("moment");
+const { fetchCommentsByPostId } = require("../middleware/comment");
 
 const { ensureGuest, ensureAuth } = require("../middleware/auth");
 
@@ -20,8 +21,10 @@ cloudinary.config({
 router.get("/:id", ensureAuth, async (req, res) => {
   const id = req.params.id;
   const post = await Post.findById(id);
+  const comments = await fetchCommentsByPostId(id, 1);
   res.locals.user = req.user;
   res.locals.post = post;
+  res.locals.comments = comments;
 
   let m = moment(post.createdAt);
   res.locals.createdDate = m.format("dddd, MMMM Do YYYY");

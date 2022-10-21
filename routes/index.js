@@ -24,7 +24,6 @@ router.get("/signup/profile", ensureAuth, (req, res) => {
 });
 
 router.patch("/signup/profile", ensureAuth, async (req, res) => {
-  console.log(req.body);
   try {
     const username = req.body.username;
     const college = req.body.college;
